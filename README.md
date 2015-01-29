@@ -28,9 +28,9 @@
 - N-ary implementation
 - Trie implementation
 - Self-balancing:
-..* Red/black
-..* Splay
-..* AVL
+  * Red/black
+  * Splay
+  * AVL
 
 ###Graphs
 - Implementations (objects/pointers, matrix, adjacency list)
