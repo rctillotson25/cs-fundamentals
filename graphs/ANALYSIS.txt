@@ -1,0 +1,30 @@
+Why pick one graph of the other? Well, here's a little blurb explaining the pro's and cons of each implementation.
+
+---ADJACENCY LIST---
+
+Storage : O(|V| + |E|) - only need room for vertices and edges.
+
+Time: 
+  O(1) - Insert / Search
+  O(|E|) - Remove Edge / Remove Vertex
+  O(|V|) - Adjacency checks
+
+In general, good for dynamic graphs. If vertices are changing or access to a complete
+list of vertices / edges is needed, adjacency lists are probably your best implementation.
+
+
+---ADJACENCY MATRIX---
+
+Storage : O(|V^2|) -  |V| x |V| matrix.
+
+Time:
+  O(1) - add / remove edge, query - check adjacency / neighbors.
+  O(|V^2|) - add / remove vertex (REALLY SLOW - NOT GOOD FOR CHANGING GRAPHS)
+
+
+Good to use for graphs with a fixed number of vertices or graphs that have a lot of 
+edge changes because it can do them in constant time. In addition, it can be helpful
+for weighted graphs. There is no additional data structure needed because the 
+weight can just be stored in the |V| x |V| array. 
+
+
