@@ -24,6 +24,28 @@ public class DirectedGraph {
 		v1.addEdge(e);
 	}
 
+
+	// return true if there is an edge from v1 to v2
+	public boolean getAdjacent(Vertex v1, Vertex v2) {
+		for(Edge e : v1.getEdges()) {
+			if (e.getVertex() == v2) {
+				return true;
+			}
+		}	
+		return false;
+	}
+
+	// return hash set of all vertices adjacent to a vertex
+	public HashSet<Vertex> getNeighbors(Vertex v) {
+		HashSet<Vertex> neighbors = new HashSet<Vertex>();
+			
+		for (Edge e : v.getEdges()) {
+			neighbors.add(e.getVertex());
+		}
+
+		return neighbors;
+
+	}
 	// terrible O(n) search algorithm
 	public Vertex getVertex(int id) {
 		for (Vertex v : vertices) {
