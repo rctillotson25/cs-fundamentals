@@ -5,6 +5,25 @@ import java.util.HashMap;
 import java.util.Stack;
 import java.util.LinkedList;
 
+/*
+ *   This class implements a directed graph.
+ *
+ *   NOTE: it is possible to use the same class 
+ *       to implement a weighted graph - just specify the 
+ *       weights in the edges. By default they will
+ *       be set to -1.
+ *
+ *   Time complexity of operations:
+ *
+ *   DFS - Worst Case: O( |V| + |E|) - occurs when all edges for all vertices point to unvisited vertices.
+ *   BFS - Worst Case: O( |V| + |E|) - same scenario as DFS.
+ *
+ *   Insert Edge -   O(1)
+ *   Delete Edge -   O(|E|) - must scan all edges to check for presence and remove if needed.
+ *   Insert Vertex - O(1)
+ *   Delete Vertex - O(|V| + |E|) - finding vertex in HashMap = O(1) if we have reference, O(|V|) otherwise.
+ *
+ */
 public class DirectedGraph {
 
 	// HashSet over TreeSet because the 
