@@ -27,12 +27,16 @@ public class Main {
 		Vertex v4 = new Vertex(4);
 		Vertex v5 = new Vertex(5);
 		Vertex v6 = new Vertex(6);
+		Vertex v7 = new Vertex(7);
 
 		v1.addEdge(new Edge(v2));
-		v2.addEdge(new Edge(v3));
+		v1.addEdge(new Edge(v3));
+		v2.addEdge(new Edge(v1));
 		v3.addEdge(new Edge(v2));
 		v3.addEdge(new Edge(v4));
 		v4.addEdge(new Edge(v5));
+		v4.addEdge(new Edge(v7));
+		v4.addEdge(new Edge(v6));
 		v5.addEdge(new Edge(v2));
 		
 		g.addVertex(v1);
@@ -41,6 +45,7 @@ public class Main {
 		g.addVertex(v4);
 		g.addVertex(v5);
 		g.addVertex(v6);
+		g.addVertex(v7);
 
 		g.print();
 
@@ -61,12 +66,22 @@ public class Main {
 		printSet(v3.getId(), hs3);
 		printSet(v6.getId(), hs6);
 
-	
-		HashMap<Vertex, Boolean> map = initVerticesHashMap(g);
-		g.DFS(v6, map);
+		// Test DFS - Recursive & Iterative
+		g.DFS(v6, initVerticesHashMap(g));
+		System.out.println();
+		g.DFSIterative(v6, initVerticesHashMap(g));
+		
+		System.out.println();
+		g.DFS(v4, initVerticesHashMap(g));
+		System.out.println();
+		g.DFSIterative(v4, initVerticesHashMap(g));
 
-		map = initVerticesHashMap(g);
-		g.DFS(v4, map);
+		// Test BFS - Iterative Only
+		System.out.println();
+		g.BFSIterative(v6, initVerticesHashMap(g));
+		System.out.println();
+		g.BFSIterative(v4, initVerticesHashMap(g));
+
 	}
 
 	// print hash set of vertices to the conosle 

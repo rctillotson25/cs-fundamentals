@@ -2,6 +2,8 @@ package adjacencyList;
 
 import java.util.HashSet;
 import java.util.HashMap;
+import java.util.Stack;
+import java.util.LinkedList;
 
 public class DirectedGraph {
 
@@ -67,7 +69,7 @@ public class DirectedGraph {
 	public void DFS(Vertex v, HashMap<Vertex, Boolean> map) {
 
 		// visit this node	
-		System.out.println(v.getId());
+		System.out.print(v.getId() + " ");
 		map.put(v, new Boolean(true));
 
 		if (v.getEdges().size() == 0) { 
@@ -82,6 +84,45 @@ public class DirectedGraph {
 			}
 		}
 
+	}
+
+	public void DFSIterative(Vertex v, HashMap<Vertex, Boolean> map) {
+		Vertex current;
+		Stack<Vertex> s = new Stack<Vertex>();
+		s.push(v);
+		while (!s.empty()) {
+			current = s.pop();
+			map.put(current, new Boolean(true));
+			System.out.print(current.getId() + " ");
+			for (Edge e : current.getEdges()) {
+				// only push unvisited vertices to stack
+				if (map.get(e.getVertex()).booleanValue() == false) {
+					s.push(e.getVertex());
+				}
+			}
+
+		}
+	}
+
+
+
+	// Implementation of BFS that iterates through the graph starting
+	// at Vertex v and prints out the vertices visited
+	public void BFSIterative(Vertex v, HashMap<Vertex, Boolean> map) {
+		Vertex current;
+		LinkedList<Vertex> q = new LinkedList<Vertex>();
+		q.add(v);
+		while(q.size() > 0) {
+			current = q.poll();
+			map.put(current, new Boolean(true));
+			System.out.print(current.getId() + " ");
+			for (Edge e : current.getEdges()) {
+				// only add unvisited vertices to queue
+				if (map.get(e.getVertex()).booleanValue() == false) {
+					q.add(e.getVertex());
+				}
+			}
+		}
 	}
 
 	public void print() {
