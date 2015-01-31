@@ -2,7 +2,17 @@
 
 ##Roadmap
 
-###Big-O Notation
+
+##General
+- Time complexity and runtime analysis
+- Algorithms
+- Bit manipulation
+- String manipulation
+- Mathematics (discrete, probability, basic stats)
+- Data structures (trees, graphs, queues, linked lists)
+- OS Fundamentals
+
+####Big-O Notation
 - BFS/DFS
 - Hash Tables
 - Graphs (all implementations)
@@ -12,33 +22,33 @@
 - Heaps
 - General algorithms
 
-###Sorting
+####Sorting
 - Quicksort
 - Heapsort
 - Mergesort
 - Tradeoffs between these algorithms
 
-###Hash Tables
+####Hash Tables
 - Implementation
 - Hash Functions
 - Runtime analysis
 
-###Trees
+####Trees
 - Binary implementation
 - N-ary implementation
 - Trie implementation
 - Self-balancing:
-..* Red/black
-..* Splay
-..* AVL
+  * Red/black
+  * Splay
+  * AVL
 
-###Graphs
+####Graphs
 - Implementations (objects/pointers, matrix, adjacency list)
 - Tradeoffs of implementations
 - Run-time analysis
 - BFS/DFS
 
-###Algorithms
+####Algorithms
 - NP-complete problems
 - BFS
 - DFS
@@ -48,11 +58,11 @@
 - Kruskal's
 - In order, post order, pre order
 
-###Math
+####Math
 - Combinatorics / probability
 - Discrete Math / Set Theory
 
-###Operating System / Architecture
+####Operating System / Architecture
 - Threads/Concurrency
 - Processes
 - Locks/Mutexes/Semaphores/Monitors
