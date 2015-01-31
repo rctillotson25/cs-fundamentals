@@ -6,6 +6,9 @@ public class Vertex {
 	private int id;
 	private HashSet<Edge> edges;
 
+
+	// keep this implementation open for weighted graphs
+	// added id variable. -1 for non-weighted
 	public Vertex() {
 		this(-1);
 	}

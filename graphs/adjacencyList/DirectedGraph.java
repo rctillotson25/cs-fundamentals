@@ -1,6 +1,7 @@
 package adjacencyList;
 
 import java.util.HashSet;
+import java.util.HashMap;
 
 public class DirectedGraph {
 
@@ -24,6 +25,10 @@ public class DirectedGraph {
 		v1.addEdge(e);
 	}
 
+	
+	public HashSet<Vertex> getVertices() { 
+		return vertices;
+	}
 
 	// return true if there is an edge from v1 to v2
 	public boolean getAdjacent(Vertex v1, Vertex v2) {
@@ -46,6 +51,7 @@ public class DirectedGraph {
 		return neighbors;
 
 	}
+
 	// terrible O(n) search algorithm
 	public Vertex getVertex(int id) {
 		for (Vertex v : vertices) {
@@ -56,6 +62,27 @@ public class DirectedGraph {
 		return null;
 	}
 
+
+	// perform DFS on graph starting at Vertex v
+	public void DFS(Vertex v, HashMap<Vertex, Boolean> map) {
+
+		// visit this node	
+		System.out.println(v.getId());
+		map.put(v, new Boolean(true));
+
+		if (v.getEdges().size() == 0) { 
+			return; 
+		}
+		else {
+			for (Edge e : v.getEdges()) {
+				// only traverse unvisited nodes
+				if (map.get(e.getVertex()).booleanValue() == false) {
+					DFS(e.getVertex(), map);
+				}
+			}
+		}
+
+	}
 
 	public void print() {
 		for (Vertex v : vertices) {

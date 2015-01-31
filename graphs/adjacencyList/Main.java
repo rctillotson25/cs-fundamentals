@@ -1,6 +1,7 @@
 package adjacencyList;
 
 import java.util.HashSet;
+import java.util.HashMap;
 
 /*
  * Class for testing adjacency list implementation of 
@@ -48,7 +49,6 @@ public class Main {
 		System.out.println("Adjacent v1, v2? " + g.getAdjacent(v1,v2));
 		System.out.println("Adjacent v2, v1? " + g.getAdjacent(v2,v1));
 
-
 		// Check that graph is correct using the neighbors functions
 		HashSet<Vertex> hs1 = g.getNeighbors(v1);
 		HashSet<Vertex> hs2 = g.getNeighbors(v2);
@@ -61,6 +61,12 @@ public class Main {
 		printSet(v3.getId(), hs3);
 		printSet(v6.getId(), hs6);
 
+	
+		HashMap<Vertex, Boolean> map = initVerticesHashMap(g);
+		g.DFS(v6, map);
+
+		map = initVerticesHashMap(g);
+		g.DFS(v4, map);
 	}
 
 	// print hash set of vertices to the conosle 
@@ -71,5 +77,15 @@ public class Main {
 			System.out.print(v.getId() + " ");
 		}
 		System.out.println();
+	}
+
+	private static HashMap<Vertex, Boolean> initVerticesHashMap(DirectedGraph g) {
+		HashMap<Vertex, Boolean> map = new HashMap<Vertex, Boolean>();
+		
+		for (Vertex v : g.getVertices()) { 
+			map.put(v, new Boolean(false));
+		}
+
+		return map;
 	}
 }
