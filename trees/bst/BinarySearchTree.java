@@ -34,14 +34,34 @@ public class BinarySearchTree {
 	private Node put(Node node, int key, String value) {
 		if (node == null) {
 			node = new Node(key, value);
-		}
-		else if (key <= node.key()) {
+		} else if (key <= node.key()) {
 			node.setLeft(put(node.left(), key, value));
-		}
-		else {
+		} else {
 			node.setRight(put(node.right(), key, value));
 		}
 		return node;
+	}
+
+
+	public String get(int key) {
+		Node node = get(root, key);
+		if (node == null) {
+			return null;
+		} else {
+			return node.value(); 
+		}
+	}
+
+	private Node get(Node node, int key) {
+		if (node == null) { 
+			return null;
+		} else if (key == node.key()) {
+			return node;
+		} else if (key < node.key()) {
+			return get(node.left(), key);
+		} else {
+			return get(node.right(), key);
+		}
 	}
 
 	public void printInOrder() {

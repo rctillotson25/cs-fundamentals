@@ -18,5 +18,10 @@ public class Main {
 		tree.put(100, "Hi Alexis");
 
 		tree.printInOrder();
+
+		// null key is caught by compiler
+		System.out.println("Get Testing.");
+		System.out.println("Present: 25 Value: " + tree.get(25));
+		System.out.println("Not present: 1109 Value: " + tree.get(1109));
 	}
 }
