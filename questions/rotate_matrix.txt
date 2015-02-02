@@ -1,0 +1,16 @@
+
+
+
+Rotate an NxN matrix 90 degrees. 
+
+
+
+| A B C |     | G D A |
+| D E F | --> | H E B |
+| G H I |     | I F C |
+
+- What does a pixel hold? 4 bytes of what?
+- Rotate CW / CCW?
+- Time complexity constraints?
+- Space constraints?
+

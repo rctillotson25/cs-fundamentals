@@ -43,15 +43,20 @@ public class BinarySearchTree {
 	}
 
 
+	// wrapper function that gets the value of a node by key
+	// returns null if no value for that key
 	public String get(int key) {
 		Node node = get(root, key);
 		if (node == null) {
+			return null;
+		} else if (key == null) {
 			return null;
 		} else {
 			return node.value(); 
 		}
 	}
 
+	// recursive function for getting a node by key
 	private Node get(Node node, int key) {
 		if (node == null) { 
 			return null;
@@ -61,6 +66,14 @@ public class BinarySearchTree {
 			return get(node.left(), key);
 		} else {
 			return get(node.right(), key);
+		}
+	}
+
+	public void remove(int key) { 
+		if (key == null) {
+			return;
+		} else {
+			remove(root, key);
 		}
 	}
 

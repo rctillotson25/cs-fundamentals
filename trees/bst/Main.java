@@ -8,20 +8,38 @@ public class Main {
 
 		BinarySearchTree tree = new BinarySearchTree();
 	
-		System.out.println(tree.getRoot());
+		insertTesting(tree);
 
+		tree.printInOrder();
+
+		getTesting(tree);
+}
+
+	/*
+	 * Insert Values into a BST.
+	 */
+	public static void insertTesting(BinarySearchTree tree) { 
+		System.out.println("ADDING VALUES TO TREE");
 		tree.put(25, "Hello");
 		tree.put(22, "Goodbye.");
 		tree.put(27, "Just joking.");
 		tree.put(11, "11");
 		tree.put(17, "Another");
 		tree.put(100, "Hi Alexis");
+	}
 
-		tree.printInOrder();
-
-		// null key is caught by compiler
-		System.out.println("Get Testing.");
+	/*
+	 * Test scenarios:
+	 * 	Not present
+	 * 	Value is a leaf
+	 * 	Value is root
+	 * 	Value is single child 
+	 */
+	public static void getTesting(BinarySearchTree tree) {
+		System.out.println("STARTING GET TESTING");
 		System.out.println("Present: 25 Value: " + tree.get(25));
+		System.out.println("Present: 22 Value: " + tree.get(22));
+		System.out.println("Present: 100 Value: " + tree.get(100));
 		System.out.println("Not present: 1109 Value: " + tree.get(1109));
 	}
 }
