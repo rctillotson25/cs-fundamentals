@@ -1,7 +1,15 @@
 package questions;
 
 import java.util.Stack;
-
+/*
+ *  This class implements an NxN Matrix. However, the Matrix(int[][] matrix) method
+ *  could be improved by checking that it is NxN.
+ *
+ *  This is just to be used with a sample interview question.
+ *
+ *  Authored on 2/1/2015 by rctillotson25
+ *
+ */
 public class Matrix {
 	private int[][] matrix;
 	private int n;
@@ -20,7 +28,8 @@ public class Matrix {
 		return matrix;
 	}
 
-	// O(n) - each element is visited once. However, this requires O(n) AUXILARY space. 
+	// O(N) - where N = n^2 (N = number of elements, nxn = size of matrix)
+	// CCW is exactly the same. 
 	public void rotateCW() {
 		int[][] pivot = new int[n][n];
 		
@@ -35,7 +44,16 @@ public class Matrix {
 	}
 
 	public void rotateCCW() {
-		System.out.println("Rotated Counter Clockwise.");
+		int[][] pivot = new int[n][n];
+		
+		// rotate cw means item in (i, j) gets moved to (j, n - 1 - i)
+		for (int row = 0; row < n; row++) {
+			for (int col = 0; col < n; col++) {
+				pivot[n-1-col][row] = matrix[row][col];
+			}
+		}		
+		
+		matrix = pivot;	
 	}
 
 	public void print() {

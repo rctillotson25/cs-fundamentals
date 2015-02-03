@@ -15,5 +15,10 @@ public class Main {
 
 		System.out.println("Rotating Counterclockwise.");
 		m.rotateCCW();
+		m.print();
+
+		System.out.println("Rotating Counterclockwise... again");
+		m.rotateCCW();
+		m.print();
 	}
 }
