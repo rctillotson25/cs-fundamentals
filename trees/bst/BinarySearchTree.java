@@ -69,11 +69,34 @@ public class BinarySearchTree {
 		}
 	}
 
+
+	/*
+	 * Remove a node denoted by a given key.
+	 *
+	 * 3 major cases to account for:
+	 *  1 - node to be removed has no children
+	 *  2 - node to be removed has one child
+	 *  3 - node to be removed has two children 
+	 *
+	 */
 	public void remove(int key) { 
 		if (key == null) {
 			return;
 		} else {
 			remove(root, key);
+		}
+	}
+
+	public Node remove(Node node, int key) {
+
+
+	}
+
+	private Node findMin(Node node) {
+		if (node.left() == null) {
+			return node;
+		} else {
+			return findMin(node.left());
 		}
 	}
 
