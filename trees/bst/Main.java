@@ -26,6 +26,7 @@ public class Main {
 		tree.put(11, "11");
 		tree.put(17, "Another");
 		tree.put(100, "Hi Alexis");
+		tree.put(11, "Another 11");
 	}
 
 	/*

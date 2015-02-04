@@ -49,8 +49,6 @@ public class BinarySearchTree {
 		Node node = get(root, key);
 		if (node == null) {
 			return null;
-		} else if (key == null) {
-			return null;
 		} else {
 			return node.value(); 
 		}
@@ -76,11 +74,11 @@ public class BinarySearchTree {
 	 * 3 major cases to account for:
 	 *  1 - node to be removed has no children
 	 *  2 - node to be removed has one child
-	 *  3 - node to be removed has two children 
+	 *  3 - node to be removed has two children - find minimum element of right sub tree.
 	 *
 	 */
 	public void remove(int key) { 
-		if (key == null) {
+		if (root == null) {
 			return;
 		} else {
 			remove(root, key);
@@ -88,6 +86,7 @@ public class BinarySearchTree {
 	}
 
 	public Node remove(Node node, int key) {
+		return null;
 
 
 	}
