@@ -77,25 +77,18 @@ public class BinarySearchTree {
 	 *  3 - node to be removed has two children - find minimum element of right sub tree.
 	 *
 	 */
-	public void remove(int key) { 
+	public boolean remove(int key) { 
 		if (root == null) {
-			return;
+			return false;
+		} else if (root.key() == key) { 
+			Node temp = new Node(1, "This is a temp node.");
+			temp.setLeft(root);
+			boolean rm = root.remove(temp, key);
+			root = temp.left();
+			temp = null;
+			return rm;	
 		} else {
-			remove(root, key);
-		}
-	}
-
-	public Node remove(Node node, int key) {
-		return null;
-
-
-	}
-
-	private Node findMin(Node node) {
-		if (node.left() == null) {
-			return node;
-		} else {
-			return findMin(node.left());
+			return root.remove(root, key);
 		}
 	}
 

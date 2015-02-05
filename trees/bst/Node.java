@@ -39,4 +39,28 @@ public class Node {
 	public void setLeft(Node left) {
 		this.left = left;
 	}
+
+	public boolean remove(Node parent, int key) { 
+		if (this.key == key) {
+			return true;
+		} else if (key < this.key) {
+			if (this.left != null) {
+				return node.left().remove(this, key);
+			} else {
+				return false;
+			}
+		} else if (key > this.key) {
+			return node.right().remove(this, key);
+		}
+
+	
+	}
+
+	private Node findMin(Node node) {
+		if (node.left() == null) {
+			return node;
+		} else {
+			return findMin(node.left());
+		}
+	}
 }
