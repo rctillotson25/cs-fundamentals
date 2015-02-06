@@ -15,6 +15,8 @@ public class Main {
 		getTesting(tree);
 
 		removeTesting(tree);
+
+		tree.printInOrder();
 }
 
 	/*
