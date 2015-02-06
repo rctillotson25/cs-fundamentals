@@ -42,25 +42,35 @@ public class Node {
 
 	public boolean remove(Node parent, int key) { 
 		if (this.key == key) {
+		// delete the key
+	 	// scenario where node has two children
+			if (this.right != null && this.left != null) {
+				Node min = this.right.findMin();
+				System.out.println("The minimum node: " + min.key() + min.value());
+				return true;
+			}	
+
 			return true;
 		} else if (key < this.key) {
 			if (this.left != null) {
-				return node.left().remove(this, key);
+				return this.left.remove(this, key);
 			} else {
 				return false;
 			}
-		} else if (key > this.key) {
-			return node.right().remove(this, key);
+		} else {
+			if (this.right != null) {
+				return this.right.remove(this, key);
+			} else {
+				return false;
+			}
 		}
-
-	
 	}
 
-	private Node findMin(Node node) {
-		if (node.left() == null) {
-			return node;
+	private Node findMin() {
+		if (left == null) {
+			return this;
 		} else {
-			return findMin(node.left());
+			return left.findMin();
 		}
 	}
 }

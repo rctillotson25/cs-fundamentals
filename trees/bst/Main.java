@@ -13,6 +13,8 @@ public class Main {
 		tree.printInOrder();
 
 		getTesting(tree);
+
+		removeTesting(tree);
 }
 
 	/*
@@ -42,5 +44,11 @@ public class Main {
 		System.out.println("Present: 22 Value: " + tree.get(22));
 		System.out.println("Present: 100 Value: " + tree.get(100));
 		System.out.println("Not present: 1109 Value: " + tree.get(1109));
+	}
+
+	public static void removeTesting(BinarySearchTree tree) {
+		System.out.println("Remove 22: " + tree.remove(22));
+		System.out.println("Remove 25: " + tree.remove(25));
+		System.out.println("Remove 21: " + tree.remove(21));
 	}
 }
