@@ -1,5 +1,14 @@
 package bst;
 
+
+/*
+ * Basic Node implementatino for a BST. 
+ * Each node can contain a key and some string value.
+ *
+ * This could be extended with generics later to make a more
+ * powerful binary search tree.
+ *
+ */
 public class Node {
 
 	private String value;
@@ -42,24 +51,37 @@ public class Node {
 
 	public boolean remove(Node parent, int key) { 
 		if (this.key == key) {
-		// delete the key
-	 	// scenario where node has two children
+			// Node has two children
 			if (this.right != null && this.left != null) {
 				Node min = this.right.findMin();
-				System.out.println("The minimum node: " + min.key() + min.value());
-				return true;
-			}	
-
+				this.key = min.key();
+				this.value = min.value();
+				right.remove(this, key);
+			} else if (parent.right == this) {
+				if (right != null) {
+					parent.right = right;
+				} else {
+					parent.right = left;
+				}
+			} else if (parent.left == this) {
+				if (right != null) {
+					parent.left = right;
+				} else {
+					parent.left = left;
+				}
+			}
 			return true;
 		} else if (key < this.key) {
 			if (this.left != null) {
 				return this.left.remove(this, key);
+			// node not found
 			} else {
 				return false;
 			}
 		} else {
 			if (this.right != null) {
 				return this.right.remove(this, key);
+			// node not found
 			} else {
 				return false;
 			}
