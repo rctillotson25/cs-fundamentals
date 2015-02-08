@@ -14,6 +14,25 @@ public class Main {
 		
 		testRemoveDups();
 		testGetKth();
+		testRemove();
+	}
+
+
+	public static void testRemove() {
+		LinkedList list = new LinkedList(); 
+	
+		list.addFront("5");
+		list.addFront("4");
+		list.addFront("3");
+		list.addFront("2");
+		list.addFront("1");
+		list.addFront("0");
+
+		list.print();
+		list.remove("2");
+		list.remove("0");
+		list.remove("5");
+		list.print();
 	}
 
 

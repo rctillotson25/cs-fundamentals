@@ -86,7 +86,11 @@ public class LinkedList {
 		}
 		
 	}
-	
+
+	/*
+	 * Returns the Kth from last element in a linked list.
+	 * O(n) in the worst case.
+	 */	
 	public String getKth(int k) {
 
 		if (k >= size) {
@@ -100,4 +104,56 @@ public class LinkedList {
 		}
 	}
 
+	public void remove(LinkedListNode n) {
+		if (head == n) {
+			// only element in the list
+			if (head == tail) {
+				head = null;
+				tail = null;			
+			} else {
+				head = head.next();
+			}
+		} else {
+			// already checked to see if head is the element - no need to check here.
+			LinkedListNode current = head.next();
+			LinkedListNode prev = head;
+
+			while (current != null) {
+				if (current == n) {
+					prev.setNext(current.next());
+					return;				
+				} else {
+					prev = current;
+					current = current.next();
+				}
+			}
+		}
+
+	}
+
+	public void remove(String data) {
+		if (head.data().equals(data)) {
+			if (head == tail) {
+				head = null;
+				tail = null;
+			} else {
+				head = head.next();
+				return;
+			}
+		} else {
+			LinkedListNode current = head.next();
+			LinkedListNode prev = head;
+
+			while (current != null) {
+				if (current.data().equals(data)) {
+					prev.setNext(current.next());
+					return;
+				} else {
+					prev = current;
+					current = current.next();
+				}
+			}
+		}
+
+	}
 }
