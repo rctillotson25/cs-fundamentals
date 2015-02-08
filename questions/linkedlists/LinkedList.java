@@ -41,6 +41,8 @@ public class LinkedList {
 			newNode.setNext(head);
 			head = newNode;
 		}
+
+		size++;
 	}
 
 	public void print() {
@@ -76,11 +78,8 @@ public class LinkedList {
 					prev = n;
 					n = n.next();
 				} else {
-					if (prev == null) {
-						prev = n.next();
-					} else {
-						prev.setNext(n.next());
-					}
+					size--;
+					prev.setNext(n.next());
 					n = n.next();
 				}
 			}
