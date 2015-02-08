@@ -1,4 +1,7 @@
-
+Note: most of this code has not been refactored, revised, or otherwise cleaned up.
+      There are a lot of places that could use some improvements, but I'm just using
+      this as a "white board" for going over the essentials of computer science once more.
+      It's been a while...
 
 ##Roadmap
 
