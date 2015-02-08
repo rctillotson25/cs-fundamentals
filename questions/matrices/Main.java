@@ -1,4 +1,4 @@
-package questions;
+package matrices;
 
 
 public class Main {
