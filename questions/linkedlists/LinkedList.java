@@ -86,5 +86,18 @@ public class LinkedList {
 		}
 		
 	}
+	
+	public String getKth(int k) {
+
+		if (k >= size) {
+			return null;
+		} else {
+			LinkedListNode current = head;
+			for (int i = 0; i < size - k; i++) {
+				current = current.next();
+			}
+			return current.data();
+		}
+	}
 
 }
