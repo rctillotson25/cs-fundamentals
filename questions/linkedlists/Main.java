@@ -7,20 +7,24 @@
 
 package linkedlists;
 
-import java.util.List;
-import java.util.LinkedList;
-import java.util.Hashtable;
-
 public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to the Linked List exercises.");
+
+		LinkedList list = new LinkedList(); 
+		list.addFront("1");		
+		list.addFront("2");
+		list.addFront("2");
+		list.addFront("2");
+		list.addFront("2");
+		list.addFront("2");
+		list.addFront("2");
+		list.addFront("2");
+		list.addFront("2");
+		list.addFront("2");
+		list.print();
+		list.removeDups1();
+		list.print();
 	}
-
-
-	public static void removeDuplicates(List<String> lst) {
-	
-		
-	}
-
 }
