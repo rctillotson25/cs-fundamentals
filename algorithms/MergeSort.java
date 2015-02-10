@@ -11,18 +11,10 @@ package algorithms;
 public class MergeSort {
 	
 	public static void main(String[] args) {
-		int[] a = {0,1,2,3,4,5,6};
+		int[] a = {6,5,4,3,2,1,0};
 		int[] b;
 
-		b = get(a, 0, 3);
-		
-		for (int i = 0; i < b.length; i++) {
-			System.out.print(b[i] + " ");
-		}
-
-		System.out.println();
-		
-		b = get(a, 3, a.length);
+		b = mergeSort(a); 
 
 		for (int i = 0; i < b.length; i++) {
 			System.out.print(b[i] + " ");
@@ -32,8 +24,51 @@ public class MergeSort {
 
 
 	public static int[] mergeSort(int[] a) {
-		return new int[1];
+		if(a.length <= 1) {
+			return a;
+		}
 
+		int mid = a.length / 2;
+		int[] left = get(a, 0, mid);
+		int[] right = get(a, mid, a.length);
+
+		System.out.println(left.length + " " + right.length);
+
+		left = mergeSort(left);
+		right = mergeSort(right);
+		return merge(left, right);
+	}
+
+	public static int[] merge(int[] left, int[] right) {
+		int li = 0;
+		int ri = 0;
+		int current = 0;
+		int[] result = new int[left.length + right.length];
+	
+		System.out.print("Left:");	
+		for (int i = 0; i < left.length; i++) {
+			System.out.print(left[i] + " ");
+		}
+
+		System.out.print("\nRight:");
+		for (int i = 0; i < right.length; i++) {
+			System.out.print(right[i] + " ");
+		}
+
+		while (li < left.length && ri < right.length) {
+			if (li < left.length && ri < right.length) {
+				if (left[li] < right[ri]) {
+					result[current++] = left[li++];
+				} else {
+					result[current++] = right[ri++];
+				}
+			} else if (li < left.length) {
+				result[current++] = left[li++];
+			} else  {
+				result[current++] = right[ri++];
+			}
+		}
+		return result;
 	}
 
 	/*
