@@ -13,4 +13,16 @@ public class QuickSort {
 		System.out.println("This is quicksort.");
 	}
 
+	// partition array 
+	// recursively apply quicksort on each half of array
+	public static int[] quickSort(int[] a, int p, int r) {
+		if (p < r) {
+			return a;
+		}
+
+		a = partition(a, 
+		
+
+	}
+
 }
