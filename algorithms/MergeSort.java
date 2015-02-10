@@ -11,15 +11,15 @@ package algorithms;
 public class MergeSort {
 	
 	public static void main(String[] args) {
-		int[] a = {6,5,4,3,2,1,0};
+		int[] a = {7,6,5,4,3,2,1,0};
 		int[] b;
 
 		b = mergeSort(a); 
 
-		for (int i = 0; i < b.length; i++) {
-			System.out.print(b[i] + " ");
-		}
-		
+		System.out.print("Original: ");
+		print(a);
+		System.out.print("Sorted: " );
+		print(b);	
 	}
 
 
@@ -32,12 +32,13 @@ public class MergeSort {
 		int[] left = get(a, 0, mid);
 		int[] right = get(a, mid, a.length);
 
-		System.out.println(left.length + " " + right.length);
 
 		left = mergeSort(left);
 		right = mergeSort(right);
 		return merge(left, right);
 	}
+
+
 
 	public static int[] merge(int[] left, int[] right) {
 		int li = 0;
@@ -45,32 +46,39 @@ public class MergeSort {
 		int current = 0;
 		int[] result = new int[left.length + right.length];
 	
-		System.out.print("Left:");	
-		for (int i = 0; i < left.length; i++) {
-			System.out.print(left[i] + " ");
-		}
-
-		System.out.print("\nRight:");
-		for (int i = 0; i < right.length; i++) {
-			System.out.print(right[i] + " ");
-		}
-
 		while (li < left.length && ri < right.length) {
-			if (li < left.length && ri < right.length) {
-				if (left[li] < right[ri]) {
-					result[current++] = left[li++];
-				} else {
-					result[current++] = right[ri++];
-				}
-			} else if (li < left.length) {
-				result[current++] = left[li++];
-			} else  {
-				result[current++] = right[ri++];
+			if (left[li] < right[li]) {
+				result[current] = left[li];
+				li++;
+			} else {
+				result[current] = right[ri];
+				ri++;
 			}
+			current++;
+		}
+
+		while (li < left.length) {
+			result[current] = left[li];
+			current++;
+			li++;
+		}
+
+		while (ri < right.length) {
+			result[current] = right[ri];
+			current++;
+			ri++;
 		}
 		return result;
 	}
 
+	
+	public static void print(int[] a) {
+		for (int i = 0; i < a.length; i++) {
+			System.out.print(a[i]  + " ");
+		}
+		System.out.println();
+	}
+	
 	/*
 	 * Get the values of the array from index start inclusively to index end exclusively.
 	 * That is, [start, end); 
