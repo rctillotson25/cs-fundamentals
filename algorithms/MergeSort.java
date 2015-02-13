@@ -11,7 +11,7 @@ package algorithms;
 public class MergeSort {
 	
 	public static void main(String[] args) {
-		int[] a = {7,6,5,4,3,2,1,0};
+		int[] a = {12,1,54,67,23,42,1,23,6,72,1,0};
 		int[] b;
 
 		b = mergeSort(a); 
@@ -22,55 +22,60 @@ public class MergeSort {
 		print(b);	
 	}
 
-
 	public static int[] mergeSort(int[] a) {
-		if(a.length <= 1) {
+		if (a.length <= 1) {
 			return a;
 		}
 
 		int mid = a.length / 2;
-		int[] left = get(a, 0, mid);
-		int[] right = get(a, mid, a.length);
-
+		int[] left = split(a, 0, mid);
+		int[] right = split(a, mid, a.length);
 
 		left = mergeSort(left);
 		right = mergeSort(right);
 		return merge(left, right);
+
 	}
-
-
 
 	public static int[] merge(int[] left, int[] right) {
-		int li = 0;
-		int ri = 0;
-		int current = 0;
-		int[] result = new int[left.length + right.length];
-	
-		while (li < left.length && ri < right.length) {
-			if (left[li] < right[li]) {
-				result[current] = left[li];
-				li++;
+		int[] a = new int[left.length + right.length];
+
+		// initialize counters for left, right, and new array
+		int l = 0;
+		int r = 0;
+		int i = 0;
+
+		while((l < left.length) && (r < right.length)) {
+			print(a);
+			if (left[l] <= right[r]) {
+				a[i] = left[l];
+				l++;
 			} else {
-				result[current] = right[ri];
-				ri++;
+				a[i] = right[r];
+				r++;
 			}
-			current++;
+			i++;
 		}
 
-		while (li < left.length) {
-			result[current] = left[li];
-			current++;
-			li++;
+		print(a);
+
+		// move rest of left array into a
+		while (l < left.length) {
+			a[i] = left[l];
+			l++;
+			i++;
 		}
 
-		while (ri < right.length) {
-			result[current] = right[ri];
-			current++;
-			ri++;
+		// move rest of right array into a
+		while (r < right.length) {
+			a[i] = right[r];
+			r++;
+			i++;
 		}
-		return result;
+
+		print(a);
+		return a;
 	}
-
 	
 	public static void print(int[] a) {
 		for (int i = 0; i < a.length; i++) {
@@ -83,7 +88,7 @@ public class MergeSort {
 	 * Get the values of the array from index start inclusively to index end exclusively.
 	 * That is, [start, end); 
 	 */ 
-	private static int[] get(int[] a, int start, int end) {
+	private static int[] split(int[] a, int start, int end) {
 		int[] b  = new int[end-start];
 
 		int counter = 0;
