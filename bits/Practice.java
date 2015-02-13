@@ -1,8 +1,6 @@
 package bits;
 
 
-
-
 public class Practice {
 
 
@@ -24,20 +22,24 @@ public class Practice {
 		System.out.println("Value 256,8 " + getBitValue(256,8));
 		
 		// clearBit tests
-		System.out.println("Clear 2,1 " + clearBit(2,1));
-		System.out.println("Clear 3,1 " + clearBit(3,1));
+		System.out.println("Clear 2,1 " + clearBit(2, 1));
+		System.out.println("Clear 3,1 " + clearBit(3, 1));
 		
 
 		// setBit tests
-		System.out.println("Set 0,8 " + setBit(0,8));
-		System.out.println("Set 1,1 " + setBit(1,1));
+		System.out.println("Set 0,8 " + setBit(0, 8));
+		System.out.println("Set 1,1 " + setBit(1, 1));
 
 		// updateBit tests
-		System.out.println("Set 0,8,ON " + Integer.toBinaryString(updateBit(0,8,ON)));
-		System.out.println("Set 1,0,OFF " + Integer.toBinaryString(updateBit(1,0,OFF)));
+		System.out.println("Set 0,8,ON " + Integer.toBinaryString(updateBit(0, 8, ON)));
+		System.out.println("Set 1,0,OFF " + Integer.toBinaryString(updateBit(1, 0, OFF)));
 
 		// insertMN tests
-		System.out.println("insertMN 128,7,0,3 " + insertMN(128,7,0,3) + " = 135");
+		System.out.println("insertMN 128,7,0,3 " + insertMN(128, 7, 0, 3) + " = 135");
+
+		// getBitDifference tests
+		System.out.println("Bit Diff: 31, 14 " + getBitDiff(31, 14) + " = 2");
+		System.out.println("Bit Diff: 5, 1" + getBitDiff(5, 1) + " = 1");
 	}
 
 	public static boolean getBit(int num, int i) {
@@ -67,6 +69,18 @@ public class Practice {
 			n = updateBit(n, k+i, getBitValue(m, k));
 		}
 		return n;
+	}
+
+	public static int getBitDiff(int a, int b) {
+		int x = a ^ b;
+		int count = 0;
+		for (int i = 1; i <= x; i *= 2) {
+			if ((x & i) != 0) {
+				count++;	
+			}
+		}
+
+		return count;
 	}
 
 }
