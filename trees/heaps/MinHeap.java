@@ -7,7 +7,10 @@
 package heaps;
 
 
-public class MinHeap {
+public class MinHeap implements Heap {
 
-	
+	@Override
+	public void heapify() {
+		return;
+	}	
 }

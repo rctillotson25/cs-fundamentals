@@ -3,7 +3,8 @@
 
 package heaps;
 
-public class MaxHeap {
+
+public class MaxHeap implements Heap {
 
 	private int[] heap;
 	private int maxSize;
@@ -45,6 +46,10 @@ public class MaxHeap {
 		heap[j] = temp;
 	}
 
+
+	public void heapify() {
+		return;
+	}
 
 	public void print() {
 		for (int i = 0; i <= size/2; i++) {
