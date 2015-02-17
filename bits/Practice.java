@@ -40,6 +40,13 @@ public class Practice {
 		// getBitDifference tests
 		System.out.println("Bit Diff: 31, 14 " + getBitDiff(31, 14) + " = 2");
 		System.out.println("Bit Diff: 5, 1" + getBitDiff(5, 1) + " = 1");
+
+		// move over 1 tests
+		System.out.println("Move over: " + getOverOne(0));
+	}
+
+	public static int getOverOne(int i) {
+		return i >> 1;
 	}
 
 	public static boolean getBit(int num, int i) {
