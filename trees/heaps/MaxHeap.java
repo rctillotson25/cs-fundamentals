@@ -85,6 +85,14 @@ public class MaxHeap implements Heap {
 		}
 	}
 
+	public void printArray() {
+		System.out.print("[");
+		for (int i = 0; i < size; i++) {
+			System.out.print(i + " ");
+		}
+		System.out.print("]");
+	}
+
 	public class HeapInputException extends Exception {
 
 		public HeapInputException(String message) {

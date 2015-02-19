@@ -13,6 +13,8 @@ public class Test {
 
 		max.buildMaxHeap(maxVals);
 		max.printChildren();
+		max.print();
+		max.printArray();
 
 	}
 

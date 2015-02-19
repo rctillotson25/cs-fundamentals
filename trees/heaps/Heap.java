@@ -8,6 +8,6 @@ package heaps;
 
 public interface Heap {
 
-	void heapify();
+	void heapify(int i);
 	
 }
