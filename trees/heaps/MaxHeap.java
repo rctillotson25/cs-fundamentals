@@ -36,9 +36,18 @@ public class MaxHeap implements Heap {
 		if (arr.length > maxSize) {
 			throw new HeapInputException("Length of input array > maxSize. length: " + arr.length + " maxSize: " + maxSize);		
 		}
-		for (int i = 0; i < (arr.length >> 1); i++) {
+
+		size = arr.length;
+		// copy values
+		for (int i = 0; i < size; i++) {
 			heap[i] = arr[i];
-			size++;
+		}
+
+		// heapify all
+		for(int i = (size >> 1) - 1; i >= 0; i--) {
+			printArray();
+			System.out.println();
+			heapify(i);
 		}
 	}
 	
@@ -49,11 +58,6 @@ public class MaxHeap implements Heap {
 		heap[j] = temp;
 	}
 
-	public void printChildren() {
-		System.out.println("Root:  0 - Value: " + heap[0]);
-		System.out.println("Left: " + left(0) + " - Value: " + heap[left(0)]);
-		System.out.println("Right: " + right(0) + " - Value: " + heap[right(0)]);
-	}
 
 	// Max-Heapify Algorithm
 	// 
@@ -64,31 +68,42 @@ public class MaxHeap implements Heap {
 	public void heapify(int i) {
 		int left = left(i);
 		int right = right(i);
-		int largest = i;
+		int largest;
 		
-		if ((left < size) && (heap[left] > heap[largest])) {
+		if ((left < size) && (heap[left] > heap[i])) {
 			largest = left;
+		} else {
+			largest = i;
 		}
+
 		if ((right < size) && (heap[right] > heap[largest])) {
 			largest = right;
 		}
 		// need to heapify the rest
 		if (largest != i) {
+			System.out.println();
+			printArray();
 			swap(i, largest);
 			heapify(largest);
 		}
 	}
+	public void printChildren() {
+		System.out.println("Root:  0 - Value: " + heap[0]);
+		System.out.println("Left: " + left(0) + " - Value: " + heap[left(0)]);
+		System.out.println("Right: " + right(0) + " - Value: " + heap[right(0)]);
+	}
 
 	public void print() {
 		for (int i = 0; i <= size/2; i++) {
-			System.out.println("Parent: " + heap[i] + " Left: " + heap[left(i)] + " Right: " + heap[right(i)]);
+			System.out.println("Parent: " + heap[i] + " Left: " + (left(i) >= size? null : heap[left(i)]) + 
+					" Right: " + (right(i) >= size? null : heap[right(i)]));
 		}
 	}
 
 	public void printArray() {
 		System.out.print("[");
 		for (int i = 0; i < size; i++) {
-			System.out.print(i + " ");
+			System.out.print(heap[i] + " ");
 		}
 		System.out.print("]");
 	}
