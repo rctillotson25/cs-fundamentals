@@ -13,6 +13,8 @@ public class Fibonacci {
 		System.out.println("Fib 3  = 3 - " + fibonacciBrute(3));
 		System.out.println("Fib 5  = 8 - " + fibonacciBrute(5));
 		System.out.println("Fib 35 = 9227465 - " + fibonacciBrute(35));
+
+		System.out.println("Fib 40 = " + fibonacciBrute(40));
 	}
 
 	// Classic, recursive method for computing fibonacci numbers. 
