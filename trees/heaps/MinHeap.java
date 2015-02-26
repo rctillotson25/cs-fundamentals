@@ -1,6 +1,7 @@
 /*
- * This class will hold a minimum heap.
- *
+ * This class holds a MinHeap implementation using arrays.
+ * 
+ * Authored on 2/15/2015 by rctillotson25
  * 
  */
 
