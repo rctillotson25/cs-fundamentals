@@ -1,7 +1,7 @@
 /*
  * Basic node implementation for Red Black Trees.
  *
- *
+ * Authored on 2/2015 by rctillotson25
  *
  */
 
