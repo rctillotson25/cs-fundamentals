@@ -22,7 +22,7 @@ public class CD {
 		return name;
 	}
 
-	public STring getId() {
+	public int getId() {
 		return id;
 	}
 }
