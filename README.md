@@ -1,7 +1,9 @@
 Note: most of this code has not been refactored, revised, or otherwise cleaned up.
       There are a lot of places that could use some improvements, but I'm just using
       this as a "white board" for going over the essentials of computer science once more.
-      It's been a while...
+      
+      It's important to revisit these things and brush up on areas where I am less comfortable. 
+      Hopefully some day I can go back and revise these so that others can learn from what I've done here!
 
 ##Roadmap
 
