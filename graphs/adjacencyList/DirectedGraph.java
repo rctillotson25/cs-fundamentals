@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.HashMap;
 import java.util.Stack;
 import java.util.LinkedList;
+import java.util.ArrayList;
 
 /*
  *   This class implements a directed graph.
@@ -127,14 +128,15 @@ public class DirectedGraph {
 
 	// Implementation of BFS that iterates through the graph starting
 	// at Vertex v and prints out the vertices visited
-	public void BFSIterative(Vertex v, HashMap<Vertex, Boolean> map) {
+	public ArrayList<Vertex> BFSIterative(Vertex v, HashMap<Vertex, Boolean> map) {
 		Vertex current;
 		LinkedList<Vertex> q = new LinkedList<Vertex>();
+		ArrayList<Vertex> vList = new ArrayList<Vertex>();
 		q.add(v);
 		while(q.size() > 0) {
 			current = q.poll();
 			map.put(current, new Boolean(true));
-			System.out.print(current.getId() + " ");
+			vList.add(current);
 			for (Edge e : current.getEdges()) {
 				// only add unvisited vertices to queue
 				if (map.get(e.getVertex()).booleanValue() == false) {
@@ -142,6 +144,8 @@ public class DirectedGraph {
 				}
 			}
 		}
+
+		return vList;
 	}
 
 	public void print() {
@@ -156,9 +160,46 @@ public class DirectedGraph {
 	}
 
 
+	// Print vertex ID's and their component numbers.
+	public void printComponents() {
+		for (Vertex v : vertices) {
+			System.out.print("Vertex ID: " + v.getId() + "\t");
+			System.out.print("Component: " + v.getComponent() + "\t");
+		}
+		System.out.println();
+	}
+
 	// Start of implementation of a connectedComponents algorithm.
 	// Given a graph, determine all connected components. 
 	public void connectedComponents() {
+		int c = 1; /* current component */
+		// o(|V|);
+		resetComponents();
 
+		for (int i = 0; i < vertices.size(); i = getNextVertex(i)) { 
+			ArrayList<Vertex> v = BFSIterative(vertices.get(i));
+			for (int j = 0; j < v.size(); j++) {
+				v.get(j).setComponent(c);
+			}
+			c++;
+		}
+	}
+
+	private int getNextvertex(int i) { 
+		for (int j = i; j < vertices.size(); j++) {
+			if (vertices.get(j).getComponent() == 0) {
+				return j;
+			}
+		}
+		return vertices.size() + 1;
+	}
+
+	// Reinitialize the component attribute
+	// of all vertices back to 0
+	private void resetComponents() {
+
+		for (Vertex v : vertices) {
+			v.setComponent(0);
+		}
 	}
 }
