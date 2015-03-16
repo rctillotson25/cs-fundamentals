@@ -16,7 +16,9 @@ public enum Jukebox {
 	}
 
 	private List<CD> initSelection() {
-		return null;
+		CD cd = new CD();
+		for (int i = 0; i < 5; i++) { 
+
 	}
 	public List<CD> getSelection() {
 		return selection;
