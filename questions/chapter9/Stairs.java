@@ -12,36 +12,22 @@ public class Stairs {
 
 	public static void main(String[] args) {
 
-		getStairCombos(0,5);
-		System.out.println("n = 5: " + combos);
-		combos = 0;
-		
-		getStairCombos(0,1);
-		System.out.println("n = 1: " + combos);
-		combos = 0;
-
-		getStairCombos(0,3);
-		System.out.println("n = 3 " + combos);
-
+		System.out.println(getStairCombos(0));
+		System.out.println(getStairCombos(1));
+		System.out.println(getStairCombos(2));
+		System.out.println(getStairCombos(3));
+		System.out.println(getStairCombos(5));
 	}
 
-	public static void getStairCombos(int current, int n) {
+	public static int getStairCombos(int n) {
 
-		if (current >= n) {
-			combos += 1;
-			return;
-		}
-
-		int remaining = n - current;
-
-		if (remaining >= 3) {
-			getStairCombos(current + 3, n);
-		}
-		if (remaining >= 2) {
-			getStairCombos(current + 2, n);
-		}
-		if (remaining >= 1) {
-			getStairCombos(current + 1, n);
+		if (n == 0) {
+			return 1;
+		} else if (n < 0) {
+			return 0;
+		} else {
+			return getStairCombos(n - 3) + getStairCombos(n - 2)
+				+ getStairCombos(n - 1);
 		}
 	}
 }
