@@ -4,13 +4,20 @@ public class Philosopher implements Runnable {
 
 
 	public int id;
+	private ForkPair fp;
 
-	public Philosopher(int id) {
+	public Philosopher(int id, ForkPair fp) {
 		super();
 		this.id = id;
+		this.fp = fp;
 	}
-
+		
+	
 	public void run() {
-		System.out.println("Hello this is Philosopher # " + id);
+		while (true) {
+			fp.pickup();
+			System.out.println("Philosopher " + id + " ate.");
+			fp.drop();
+		}
 	}
 }
